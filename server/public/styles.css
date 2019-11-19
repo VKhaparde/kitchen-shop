@@ -1,0 +1,9 @@
+.showcard{
+height:500px;
+}
+
+.imgstyle{
+  height: 50%;
+  width:100%;
+  object-fit: contain;
+}
