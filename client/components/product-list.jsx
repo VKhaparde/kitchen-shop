@@ -5,6 +5,7 @@
 //  that retrieves all products by sending a`GET` request to`/api/products`.
 import React from 'react';
 import ProductListItem from './product-list-item';
+// import ProductDetails from './product-details';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -39,6 +40,9 @@ class ProductList extends React.Component {
                   price={currentVal.price }
                   image = {currentVal.image}
                   shortDescription ={currentVal.shortDescription}
+                  longDescription = {currentVal.longDescription}
+                  setView={this.props.setView}
+                  params={this.props.params}
                 />
               );
             })

@@ -1,9 +1,52 @@
 .showcard{
 height:500px;
+cursor:pointer;
 }
 
 .imgstyle{
   height: 50%;
   width:100%;
   object-fit: contain;
+}
+.back-to-catalog{
+  display:block;
+  margin:5px;
+  cursor: pointer;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.product{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height:50%;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+.description{
+height:50%;
+}
+.image-details{
+  height:100%;
+  width:50%;
+  flex-wrap: wrap;
+}
+img{
+  object-fit: contain;
+  width:100%;
+}
+
+.product-details{
+  height:100%;
+  width:50%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
