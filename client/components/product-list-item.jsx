@@ -1,7 +1,11 @@
 import React from 'react';
+
 function ProductListItem(props) {
   return (
-    <div className="col-md-4 ">
+    <div className="col-md-4" params = {props.params}
+      onClick={() => {
+        props.setView('details', { productId: props.productId });
+      }}>
       <div className="card showcard my-3">
         <img src={props.image} className="card-img-top imgstyle" alt="product-image" />
         <div className="card-body">
