@@ -43,6 +43,7 @@ class ProductList extends React.Component {
                   longDescription = {currentVal.longDescription}
                   setView={this.props.setView}
                   params={this.props.params}
+                  addToCart = {this.props.addToCart}
                 />
               );
             })
