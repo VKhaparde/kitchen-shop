@@ -8,7 +8,7 @@ function CartSummaryItem(props) {
       </div>
       <div className="col-7">
         <p>{props.name}</p>
-        <p>{props.price}</p>
+        <p>${props.price}</p>
         <p>{props.shortDescription}</p>
       </div>
     </div>
