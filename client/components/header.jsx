@@ -5,7 +5,11 @@ function Header(props) {
       <h1 className="text-white">Wicked Sales</h1>
       <div className='d-inline-flex justify-content-start'>
         <p className=" mytext text-white" >{props.cartItemCount} Items</p>
-        <i className=" text-white fas fa-shopping-cart"></i>
+        <div onClick={() => {
+          props.setView('cart', {});
+        }}>
+          <i className=" text-white fas fa-shopping-cart"></i>
+        </div>
       </div>
     </div>
   );
