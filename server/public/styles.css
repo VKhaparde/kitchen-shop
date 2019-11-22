@@ -50,3 +50,7 @@ img{
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
+.mytext{
+  font-size : 0.6rem;
+}

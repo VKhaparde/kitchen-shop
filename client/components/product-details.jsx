@@ -39,7 +39,7 @@ class ProductDetails extends React.Component {
             () => {
               this.props.setView('catalog', {});
             }}>
-          Back to catalog</div>
+          &gt Back to catalog</div>
           <div className="container">
             <div className="product">
               <div className="image-details">
@@ -49,6 +49,12 @@ class ProductDetails extends React.Component {
                 <p>{product.name}</p>
                 <p>${((product.price) / 100).toFixed(2)}</p>
                 <p>{product.shortDescription}</p>
+                <div>
+                  <button className="btn btn-primary"
+                    onClick={event => {
+                      this.props.addToCart(product);
+                    }}>Add to Cart</button>
+                </div>
               </div>
             </div>
             <div className="description">{product.longDescription}</div>
