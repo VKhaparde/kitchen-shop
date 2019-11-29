@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
+import CartSummary from './cart-summary';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,13 +19,11 @@ export default class App extends React.Component {
   }
 
   setView(name, params) {
-    this.setState(
-      {
-        view: {
-          name: name,
-          params: params
-        }
-      });
+    const newView = {
+      name: name,
+      params: params
+    };
+    this.setState({ view: newView });
   }
 
   componentDidMount() {
@@ -56,16 +55,26 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length}/>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView}
+            params={this.state.view.params}/>
           <ProductList setView = {this.setView} />
         </div>
       );
     } else if (this.state.view.name === 'details') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length}/>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView}
+            params={this.state.view.params}/>
           <ProductDetails params = {this.state.view.params}
             setView={this.setView} addToCart={this.addToCart}/>
+        </div>
+      );
+    } else if (this.state.view.name === 'cart') {
+      return (
+        <div>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView}
+            params={this.state.view.params} />
+          <CartSummary cart={this.state.cart} setView={this.setView}/>
         </div>
       );
     }

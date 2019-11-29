@@ -39,7 +39,7 @@ class ProductDetails extends React.Component {
             () => {
               this.props.setView('catalog', {});
             }}>
-          &gt Back to catalog</div>
+            Back to catalog</div>
           <div className="container">
             <div className="product">
               <div className="image-details">
