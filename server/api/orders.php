@@ -9,9 +9,7 @@ if ($request['method'] === 'POST') {
     }
     $link = get_db_link();
     $message = place_order($link);
-    $response['body'] = [
-      'message' => $message
-    ];
+    $response['body'] = $message['order_placed'];
     send($response);
   }
 }
@@ -24,10 +22,13 @@ function place_order($link)
   $sql = "INSERT INTO orders (cartId, name, creditCard, shippingAddress) VALUES (?,?,?,?)";
   $stmt = $link->prepare($sql);
   $stmt->bind_param("sss", $cartId, $name, $creditCard, $shippingAddress);
-  $stmt->execute();
+  $result = $stmt->execute();
   $insert_id = mysqli_stmt_insert_id($stmt);
   $stmt->close();
   unset($_SESSION["cart_id"]);
 
-  return $insert_id;
+  return [
+    "insert_id "=> $insert_id,
+    "order_placed"=>mysqli_fetch_assoc($result)
+  ];
 }
