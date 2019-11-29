@@ -8,6 +8,10 @@ function CartSummary(props) {
   }, 0);
   return (
     <div className="outerDiv">
+      <p className= "back-to-catalog" onClick={() => {
+        props.setView('catalog', {});
+      }
+      }>Back to Catalog</p>
       <h3 className="heading navbar navbar-light">My Cart</h3>
       {
         props.cart.map((currentVal, index) => {

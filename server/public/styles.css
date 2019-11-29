@@ -12,6 +12,7 @@ cursor:pointer;
   display:block;
   margin:5px;
   cursor: pointer;
+  padding:15px;
 }
 .container{
   display: flex;
@@ -53,12 +54,17 @@ img{
 
 .mytext{
   font-size : 0.6rem;
+  cursor: pointer;
 }
 
 .outerDiv{
   display:flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items:flex-start;
   flex-direction: column;
   flex-wrap: wrap;
+}
+.totalprice{
+  font-weight : bold;
+  padding :20px;
 }
