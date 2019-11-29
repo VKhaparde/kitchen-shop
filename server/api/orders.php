@@ -16,9 +16,9 @@ if ($request['method'] === 'POST') {
 function place_order($link)
 {
   $cartId = $_SESSION['cart_id'];
-  $name = "Harry Potter";
-  $creditCard = "1356878909";
-  $shippingAddress = "123 Main Street, Denver";
+  $name ="";
+  $creditCard = "";
+  $shippingAddress = "";
   $sql = "INSERT INTO orders (cartId, name, creditCard, shippingAddress) VALUES (?,?,?,?)";
   $stmt = $link->prepare($sql);
   $stmt->bind_param("sss", $cartId, $name, $creditCard, $shippingAddress);
