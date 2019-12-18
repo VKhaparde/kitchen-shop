@@ -35,7 +35,7 @@ class ProductDetails extends React.Component {
     if (product.productId) {
       return (
         <div>
-          <div className="back-to-catalog" onClick = {
+          <div className="back-to-catalog btn btn-link" onClick = {
             () => {
               this.props.setView('catalog', {});
             }}>
