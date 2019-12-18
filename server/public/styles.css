@@ -76,3 +76,6 @@ img{
 input,textarea{
   border:2px solid grey;
 }
+button{
+  cursor:pointer;
+}
