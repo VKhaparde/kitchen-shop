@@ -1,4 +1,4 @@
-# wicked-sales
+# kitchen-shop
 
 > - Maintained by: `thebearingedge`
 
