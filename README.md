@@ -18,4 +18,4 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 * User can view the cart summary
 * User can place an order
 ## Preview
-![preview] (https://github.com/VKhaparde/kitchen-shop/blob/master/kitchen-shop.png)
+![kitchen-shop](https://user-images.githubusercontent.com/54192822/71130824-de11e500-21ea-11ea-8697-13bb151c0247.png)
