@@ -29,6 +29,7 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
   1. Clone the directory
   
       git clone https://github.com/VKhaparde/kitchen-shop.git 
+      
       cd kitchen-shop
       
   2. Install all dependencies with NPM
