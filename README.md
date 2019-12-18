@@ -18,3 +18,4 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 * User can view the cart summary
 * User can place an order
 ## Preview
+[preview]
