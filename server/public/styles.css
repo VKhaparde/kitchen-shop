@@ -68,3 +68,7 @@ img{
   font-weight : bold;
   padding :20px;
 }
+
+input,textarea{
+  border:2px solid grey;
+}
