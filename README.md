@@ -27,4 +27,5 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 ### Getting Started 
 
   1. Clone the directory
+      git clone 
     
