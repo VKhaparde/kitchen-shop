@@ -27,12 +27,19 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 ### Getting Started 
 
   1. Clone the directory
+  
       git clone https://github.com/VKhaparde/kitchen-shop.git 
       cd kitchen-shop
+      
   2. Install all dependencies with NPM
+  
      npm install
+     
   3. Import the database
+  
      npm run db:import
+     
   4.Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
+  
      npm run dev   
     
