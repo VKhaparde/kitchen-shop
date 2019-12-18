@@ -1,8 +1,6 @@
 # kitchen-shop
 
-> - Maintained by: `thebearingedge`
-
-A full stack LAMP & React shopping cart app.
+A full stack LAMP & React shopping cart application where a user can shop for small kitchen appliances.
 
 ## Introduction
 
