@@ -35,7 +35,7 @@ class ProductDetails extends React.Component {
     if (product.productId) {
       return (
         <div>
-          <div className="back-to-catalog btn btn-link" onClick = {
+          <div className="back-to-catalog btn btn-link" onClick={
             () => {
               this.props.setView('catalog', {});
             }}>
@@ -43,7 +43,7 @@ class ProductDetails extends React.Component {
           <div className="container">
             <div className="product">
               <div className="image-details">
-                <img src={product.image} alt="product-image"/>
+                <img src={product.image} alt="product-image" />
               </div>
               <div className="product-details">
                 <p>{product.name}</p>

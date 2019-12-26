@@ -8,7 +8,7 @@ function Header(props) {
         <div onClick={() => {
           props.setView('cart', {});
         }}>
-          <i className=" text-white fas fa-shopping-cart"></i>
+          <i className="text-white fas fa-shopping-cart"></i>
         </div>
       </div>
     </div>

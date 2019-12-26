@@ -17,6 +17,7 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   setView(name, params) {
@@ -48,6 +49,22 @@ export default class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         const productsInCart = this.state.cart.concat(product);
+        this.setState({ cart: productsInCart });
+      });
+  }
+
+  removeFromCart(product) {
+    const init = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(product)
+    };
+    fetch('/api/cart', init)
+      .then(response => response.json())
+      .then(data => {
+        const productsInCart = this.state.cart.filter(item => {
+          return item.productId !== product.productId;
+        });
         this.setState({ cart: productsInCart });
       });
   }
@@ -91,7 +108,8 @@ export default class App extends React.Component {
         <div>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}
             params={this.state.view.params} />
-          <CartSummary cart={this.state.cart} setView={this.setView}/>
+          <CartSummary cart={this.state.cart} setView={this.setView}
+            removeFromCart={this.removeFromCart}/>
         </div>
       );
     } else if (this.state.view.name === 'checkout') {
