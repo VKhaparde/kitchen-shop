@@ -38,6 +38,20 @@ else if ($request['method'] === 'POST') {
     send($response);
 }
 
+else if ($request['method'] === "DELETE") {
+  if (!isset($request['body']['productId']) || !is_numeric($request['body']['productId'])) {
+    throw new ApiError("Valid productId is required", 400);
+  }
+  $link = get_db_link();
+  $productId = $request['body']['productId'];
+  $message = remove_product_fromCart($link, $productId);
+  $response['body'] = $message['cart_items'];
+  send($response);
+}
+
+function remove_product_fromcart($link,$productId){
+  $query = "DELETE from cartItems WHERE productId = $productId";
+}
 
 function add_product_toCart($link,$productId)
 {

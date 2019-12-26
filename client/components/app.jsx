@@ -55,9 +55,11 @@ export default class App extends React.Component {
 
   removeFromCart(product) {
     const init = {
-      method: 'POST',
+      method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(product)
+      body: JSON.stringify({
+        productId: product.productId
+      })
     };
     fetch('/api/cart', init)
       .then(response => response.json())

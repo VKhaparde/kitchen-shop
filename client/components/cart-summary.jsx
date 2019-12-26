@@ -2,6 +2,7 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
+  // console.log('props in CartSummary',props);
   const uniqueItems = [...new Set(props.cart.map(x => x.productId))];
   const resultArray = [];
   var duplicateItem = { count: 0 };
@@ -11,6 +12,7 @@ function CartSummary(props) {
         duplicateItem.productId = props.cart[i].productId;
         duplicateItem.price = props.cart[i].price;
         duplicateItem.image = props.cart[i].image;
+        duplicateItem.name = props.cart[i].name;
         duplicateItem.shortDescription = props.cart[i].shortDescription;
         duplicateItem.count = duplicateItem.count + 1;
       }
@@ -32,12 +34,14 @@ function CartSummary(props) {
         resultArray.map((currentVal, index) => {
           return (
             <CartSummaryItem
-              key={index}
+              key={currentVal.productId}
+              productId={currentVal.productId}
               name={currentVal.name}
               price={((currentVal.price) / 100).toFixed(2)}
               image={currentVal.image}
               shortDescription={currentVal.shortDescription}
-              count={currentVal.count} />
+              count={currentVal.count}
+              removeFromCart={props.removeFromCart}/>
           );
         })
       }
