@@ -50,7 +50,20 @@ else if ($request['method'] === "DELETE") {
 }
 
 function remove_product_fromcart($link,$productId){
-  $query = "DELETE from cartItems WHERE productId = $productId";
+  $deleteItemQuery = "DELETE from cartItems WHERE productId = $productId";
+  $deleteFromCartResult = mysqli_query($link, $deleteItemQuery);
+  $delete_id_cartItems = $link->$_SESSION['cart_id'];
+  $cart_items_query = "SELECT ci.cartItemId, p.productId, p.name, p.price, p.image, p.shortDescription
+                        FROM products AS p
+                        JOIN cartItems AS ci
+                         ON p.productId = ci.productId
+                        WHERE ci.cartItemId = $delete_id_cartItems";
+
+  $cart_items_result = mysqli_query($link, $cart_items_query);
+  // return  mysqli_fetch_assoc($cart_items_result);
+  return [
+    "cart_items" => mysqli_fetch_assoc($cart_items_result)
+  ];
 }
 
 function add_product_toCart($link,$productId)
