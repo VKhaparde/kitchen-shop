@@ -9,7 +9,7 @@ function CartSummaryItem(props) {
         <img src={props.image} alt="productImage"/>
       </div>
       <div className="col-7 bg-info text-white ">
-        <p>{props.name}</p>
+        <h5 className="font-weight-bold">{props.name}</h5>
         <p>${props.price}</p>
         <p>{props.shortDescription}</p>
         <p>Quantity: {props.count}</p>
