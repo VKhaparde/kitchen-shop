@@ -8,7 +8,7 @@ function ProductListItem(props) {
       }}>
       <div className="card showcard my-3">
         <img src={props.image} className="card-img-top imgstyle" alt="product-image" />
-        <div className="card-body bg-info text-white">
+        <div className="card-body bg-secondary text-white">
           <h5 className="card-title">{props.name}</h5>
           <p className="card-subtitle">${(props.price / 100).toFixed(2)}</p>
           <p className="card-text">{props.shortDescription}</p>

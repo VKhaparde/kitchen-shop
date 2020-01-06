@@ -96,3 +96,6 @@ button{
   border:5px solid black;
   border-radius: 12px;
 }
+.cart-icon{
+  cursor: pointer;
+}
