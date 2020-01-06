@@ -1,6 +1,15 @@
+html, body{
+  overflow-x: hidden;
+}
+
 .showcard{
 height:500px;
 cursor:pointer;
+}
+.showcard:hover{
+  -webkit-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .imgstyle{
@@ -34,11 +43,14 @@ cursor:pointer;
 }
 .description{
 height:45%;
+font-size: 0.75rem;
 }
 .image-details{
   height:100%;
   width:45%;
   flex-wrap: wrap;
+  border:4px solid grey;
+  object-fit: contain;
 }
 
 img{
@@ -54,6 +66,7 @@ img{
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-size: 0.85rem;;
 }
 
 .mytext{

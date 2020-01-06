@@ -45,8 +45,8 @@ class ProductDetails extends React.Component {
               <div className="image-details">
                 <img src={product.image} alt="product-image" />
               </div>
-              <div className="product-details">
-                <p>{product.name}</p>
+              <div className="product-details m-2">
+                <h4 className="font-weight-bold">{product.name}</h4>
                 <p>${((product.price) / 100).toFixed(2)}</p>
                 <p>{product.shortDescription}</p>
                 <div>
