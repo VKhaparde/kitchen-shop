@@ -29,7 +29,17 @@ function CartSummary(props) {
         props.setView('catalog', {});
       }
       }>Back to Catalog</p>
-      <h3 className="heading navbar navbar-light">My Cart</h3>
+      <div className="d-flex navbar navbar-light w-100">
+        <h3 className="">My Cart</h3>
+        <div className="d-flex justify-content-between">
+          <div className="totalpriceCart">Item Total : ${(totalPrice / 100).toFixed(2)}</div>
+          <button className="btn btn-primary m-1" onClick={() => {
+            if (props.cart.length) {
+              props.setView('checkout', {});
+            }
+          }}>Checkout</button>
+        </div>
+      </div>
       {
         resultArray.map((currentVal, index) => {
           return (
@@ -41,16 +51,16 @@ function CartSummary(props) {
               image={currentVal.image}
               shortDescription={currentVal.shortDescription}
               count={currentVal.count}
-              removeFromCart={props.removeFromCart}/>
+              removeFromCart={props.removeFromCart} />
           );
         })
       }
-      <div className="totalprice">Item Total = ${(totalPrice / 100).toFixed(2)}</div>
+      {/* <div className="totalprice">Item Total = ${(totalPrice / 100).toFixed(2)}</div>
       <button className="btn btn-primary mx-5 my-2" onClick={() => {
         if (props.cart.length) {
           props.setView('checkout', {});
         }
-      }}>checkout</button>
+      }}>checkout</button> */}
     </div>
   );
 }

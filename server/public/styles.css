@@ -19,7 +19,7 @@ cursor:pointer;
 }
 .back-to-catalog{
   display:block;
-  margin:5px;
+  margin:2px;
   cursor: pointer;
   padding:15px;
 }
@@ -83,9 +83,12 @@ img{
 }
 .totalprice{
   font-weight : bold;
-  padding :20px;
+ padding :20px;
 }
-
+.totalpriceCart{
+  font-weight : bold;
+  margin-top: 10px;
+}
 input,textarea{
   border:2px solid grey;
 }
