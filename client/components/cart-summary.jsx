@@ -31,9 +31,9 @@ function CartSummary(props) {
       }>Back to Catalog</p>
       <div className="d-flex navbar navbar-light w-100">
         <h3 className="">My Cart</h3>
-        <div className="">
-          <div className="totalpriceCart">Item Total = ${(totalPrice / 100).toFixed(2)}</div>
-          <button className="btn btn-primary ml-2" onClick={() => {
+        <div className="d-flex justify-content-between">
+          <div className="totalpriceCart">Item Total : ${(totalPrice / 100).toFixed(2)}</div>
+          <button className="btn btn-primary m-1" onClick={() => {
             if (props.cart.length) {
               props.setView('checkout', {});
             }
