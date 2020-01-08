@@ -22,33 +22,36 @@ class CheckoutForm extends React.Component {
       return (accumulator + currentVal.price);
     }, 0);
     return (
-      <div className="d-flex flex-column m-2 checkoutForm">
-        <h3 className="text-center ">My Cart</h3>
+      <div className="mx-2 p-4 checkoutForm">
+        <h3 className="text-center">My Cart</h3>
         <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
-        <form action="" className="m-2 d-flex flex-column"
-          onSubmit={() =>
-            this.props.placeOrder(this.state)
-          }>
+        <form action="" onSubmit={() =>
+          this.props.placeOrder(this.state)}>
 
-          <label className="p-2">Name:
-            <input type="text" name="name" value={this.state.name}
-              onChange={this.updateField} required />
-          </label>
-
-          <label className="p-2">Credit Card number:
-            <input type="text" name="creditCard" value={this.state.creditCard}
-              onChange={this.updateField} required />
-          </label>
-
-          <div className="d-flex justify-content-start">
-            <div className="p-2">Shipping Address:</div>
-            <textarea className="" name="shippingAddress" value={this.state.shippingAddress}
+          <div className="form-group">
+            <label>Name:</label>
+            <input type="text" name="name" className="form-control" value={this.state.name}
               onChange={this.updateField} required />
           </div>
-          <button className="btn btn-primary m-4" onClick={() => {
+
+          <div className="form-group">
+            <label>Credit Card number:</label>
+            <input type="text" name="creditCard" className="form-control" value={this.state.creditCard}
+              onChange={this.updateField} required />
+          </div>
+
+          <div className="form-group">
+            <label>Shipping Address:</label>
+            <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
+              onChange={this.updateField} required />
+          </div>
+
+          <button className="btn btn-primary m-2" onClick={() => {
             this.props.setView('catalog', {});
           }}>Continue Shopping</button>
-          <button className="btn btn-primary m-4">Place Order</button>
+
+          <button className="btn btn-primary m-2">Place Order</button>
+
         </form >
       </div>
     );

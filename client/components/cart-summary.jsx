@@ -29,7 +29,7 @@ function CartSummary(props) {
         props.setView('catalog', {});
       }
       }>Back to Catalog</p>
-      <div className="d-flex navbar navbar-light w-100">
+      <div className="d-flex navbar navbar-light pl-2 w-100">
         <h3 className="">My Cart</h3>
         <div className="d-flex justify-content-between">
           <div className="totalpriceCart">Item Total : ${(totalPrice / 100).toFixed(2)}</div>
