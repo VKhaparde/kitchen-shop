@@ -40,7 +40,7 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
   
      npm run db:import
      
-  4.Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
+  4.Start the project. Once started you can view the application by opening https://kitchen-shop.vandanakhaparde.com in your browser.
   
      npm run dev   
     
