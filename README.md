@@ -10,7 +10,7 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 * AWS EC2
 
 ## Live Demo
- Try the application live at  http://localhost:3000/
+ Try the application live at  https://kitchen-shop.vandanakhaparde.com
 ## Features
 * User can view products for sale
 * User can view the details of the product
