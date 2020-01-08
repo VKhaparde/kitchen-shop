@@ -83,9 +83,12 @@ img{
 }
 .totalprice{
   font-weight : bold;
-  padding :20px;
+ padding :20px;
 }
-
+.totalpriceCart{
+  font-weight : bold;
+  padding: 8px;
+}
 input,textarea{
   border:2px solid grey;
 }
