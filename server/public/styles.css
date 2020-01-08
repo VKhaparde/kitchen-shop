@@ -98,6 +98,7 @@ button{
 .checkoutForm{
   border:5px solid black;
   border-radius: 12px;
+  margin:5px;
 }
 .cart-icon{
   cursor: pointer;
