@@ -31,19 +31,19 @@ class CheckoutForm extends React.Component {
           <div className="form-group">
             <label>Name:</label>
             <input type="text" name="name" className="form-control" value={this.state.name}
-              onChange={this.updateField} required />
+              onChange={this.updateField} required autoComplete="off" />
           </div>
 
           <div className="form-group">
             <label>Credit Card number:</label>
             <input type="text" name="creditCard" className="form-control" value={this.state.creditCard}
-              onChange={this.updateField} required />
+              onChange={this.updateField} required autoComplete="off"/>
           </div>
 
           <div className="form-group">
             <label>Shipping Address:</label>
             <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-              onChange={this.updateField} required />
+              onChange={this.updateField} required autoComplete="off"/>
           </div>
 
           <button className="btn btn-primary m-2" onClick={() => {
