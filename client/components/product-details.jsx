@@ -28,6 +28,7 @@ class ProductDetails extends React.Component {
   }
 
   render() {
+    // console.log('props in product details', this.props);
     const product = this.state.product;
     if (product === null) {
       return null;
@@ -49,11 +50,18 @@ class ProductDetails extends React.Component {
                 <h4 className="font-weight-bold">{product.name}</h4>
                 <p>${((product.price) / 100).toFixed(2)}</p>
                 <p>{product.shortDescription}</p>
-                <div>
-                  <button className="btn btn-primary"
+                <div className="row">
+                  <button className="btn btn-primary m-2"
                     onClick={event => {
                       this.props.addToCart(product);
                     }}>Add to Cart</button>
+                  <button className="btn btn-primary m-2" onClick={
+                    () => {
+                      this.props.setView('catalog', {});
+                    }}>Continue Shopping</button>
+                  <button className="btn btn-primary m-2" onClick={() => {
+                    this.props.setView('cart', {});
+                  }}>View Cart</button>
                 </div>
               </div>
             </div>

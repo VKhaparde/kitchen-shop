@@ -13,8 +13,9 @@ function CartSummaryItem(props) {
           <h5 className="font-weight-bold mt-4">{props.name}</h5>
           <p>${props.price}</p>
           <p>{props.shortDescription}</p>
-          <p>Quantity: {props.count}</p>
-          <button className="btn btn-danger mb-3"
+          <p>Quantity:</p>
+          <p className=""><i className="fas fa-plus-square p-2"></i> <span className="bg-white text-secondary item_count">{props.count}</span> <i className="fas fa-minus-square p-2"></i></p>
+          <button className="btn btn-danger my-3"
             onClick={event => {
               props.removeFromCart(product);
             }}>Remove</button>

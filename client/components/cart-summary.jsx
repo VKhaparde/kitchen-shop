@@ -25,10 +25,10 @@ function CartSummary(props) {
   }, 0);
   return (
     <div className="outerDiv">
-      <p className="back-to-catalog btn btn-link" onClick={() => {
+      <p className="btn btn-primary m-2" onClick={() => {
         props.setView('catalog', {});
       }
-      }>Back to Catalog</p>
+      }>Continue Shopping</p>
       <div className="d-flex navbar navbar-light pl-2 w-100">
         <h3 className="">My Cart</h3>
         <div className="d-flex justify-content-between">
