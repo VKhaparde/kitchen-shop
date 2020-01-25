@@ -1,7 +1,7 @@
 import React from 'react';
 function Header(props) {
   return (
-    <div className="navbar navbar-light bg-dark d-flex justify-content-between">
+    <div className="navbar bg-dark d-flex justify-content-between">
       <h2 className="text-white">Kitchen Shop</h2>
       <div className='d-inline-flex justify-content-start' onClick={() => {
         props.setView('cart', {});
