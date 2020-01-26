@@ -110,7 +110,7 @@ button{
   padding:3%;
   border-radius: 15%;
 }
-/* .cooking{
+.cooking{
   height:65vh;
   background: url("images/cooking.jpg")no-repeat center;
   -webkit-background-size: cover;
@@ -118,10 +118,14 @@ button{
   -o-background-size: cover;
   background-size: cover;
   font-family:cursive;
-} */
+}
 
+
+ .carousel-inner{
+  height:70%
+}
 .carouselImg{
-  height:50%;
+  height:100%;
 }
 .carousel-caption{
   font-family: cursive;
