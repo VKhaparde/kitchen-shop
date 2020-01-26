@@ -51,21 +51,39 @@ class ProductDetails extends React.Component {
                 <p>${((product.price) / 100).toFixed(2)}</p>
                 <p>{product.shortDescription}</p>
                 <div className="row">
-                  <button className="btn btn-primary m-2"
+                  <button className="btn btn-primary m-2" data-toggle="modal" data-target="#ModalCenter"
                     onClick={event => {
                       this.props.addToCart(product);
                     }}>Add to Cart</button>
-                  <button className="btn btn-primary m-2" onClick={
-                    () => {
-                      this.props.setView('catalog', {});
-                    }}>Continue Shopping</button>
-                  <button className="btn btn-primary m-2" onClick={() => {
-                    this.props.setView('cart', {});
-                  }}>View Cart</button>
                 </div>
               </div>
             </div>
             <div className="description">{product.longDescription}</div>
+          </div>
+          <div className="modal fade" id="ModalCenter" tabIndex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLongTitle">New Item Added</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  You have added {product.name} to your cart.
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal"
+                    onClick={
+                      () => {
+                        this.props.setView('catalog', {});
+                      }}>Keep Shopping</button>
+                  <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => {
+                    this.props.setView('cart', {});
+                  }}>View cart</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       );
