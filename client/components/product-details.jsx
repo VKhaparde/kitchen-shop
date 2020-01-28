@@ -77,10 +77,11 @@ class ProductDetails extends React.Component {
                     onClick={
                       () => {
                         this.props.setView('catalog', {});
-                      }}>Keep Shopping</button>
-                  <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => {
-                    this.props.setView('cart', {});
-                  }}>View cart</button>
+                      }}>Continue Shopping</button>
+                  <button type="button" className="btn btn-primary" data-dismiss="modal"
+                    onClick={() => {
+                      this.props.setView('cart', {});
+                    }}>View Cart</button>
                 </div>
               </div>
             </div>

@@ -4,8 +4,9 @@ import CartSummaryItem from './cart-summary-item';
 function CartSummary(props) {
   // console.log('props in CartSummary',props);
   const uniqueItems = [...new Set(props.cart.map(x => x.productId))];
+  // console.log('Unique Items',uniqueItems);
   const resultArray = [];
-  var duplicateItem = { count: 0 };
+  var duplicateItem = { count: 0, cartItemIdArray: [] };
   for (let uniqueIndex = 0; uniqueIndex < uniqueItems.length; uniqueIndex++) {
     for (let i = 0; i < props.cart.length; i++) {
       if (uniqueItems[uniqueIndex] === props.cart[i].productId) {
@@ -15,17 +16,42 @@ function CartSummary(props) {
         duplicateItem.name = props.cart[i].name;
         duplicateItem.shortDescription = props.cart[i].shortDescription;
         duplicateItem.count = duplicateItem.count + 1;
+        // console.log("props.cart[i].cartItemId", props.cart[i].cartItemId);
+        duplicateItem.cartItemIdArray.push(props.cart[i].cartItemId);
       }
     }
     resultArray.push(duplicateItem);
-    duplicateItem = { count: 0 };
+    duplicateItem = { count: 0, cartItemIdArray: [] };
   }
   const totalPrice = props.cart.reduce((accumulator, currentVal) => {
     return (accumulator + currentVal.price);
   }, 0);
+  // console.log('Result Array', resultArray);
+  if (resultArray.length === 0) {
+    return (
+      <div className="outerDiv">
+        <p className="btn btn-secondary m-2" onClick={() => {
+          props.setView('catalog', {});
+        }
+        }>Continue Shopping</p>
+        <div className="d-flex navbar navbar-light pl-2 w-100">
+          <h3 className="">My Cart</h3>
+          <div className="d-flex justify-content-between">
+            <div className="totalpriceCart">Item Total : ${(totalPrice / 100).toFixed(2)}</div>
+            <button className="btn btn-primary m-1" onClick={() => {
+              if (props.cart.length) {
+                props.setView('checkout', {});
+              }
+            }}>Checkout</button>
+          </div>
+        </div>
+        <div className=" emptyCart text-white text-center p-5 m-4 align-self-center rounded">Your cart is empty!</div>
+      </div>
+    );
+  }
   return (
     <div className="outerDiv">
-      <p className="btn btn-primary m-2" onClick={() => {
+      <p className="btn btn-secondary m-2" onClick={() => {
         props.setView('catalog', {});
       }
       }>Continue Shopping</p>
@@ -47,20 +73,19 @@ function CartSummary(props) {
               key={currentVal.productId}
               productId={currentVal.productId}
               name={currentVal.name}
-              price={((currentVal.price) / 100).toFixed(2)}
+              // price={((currentVal.price) / 100).toFixed(2)}
+              price={currentVal.price}
               image={currentVal.image}
               shortDescription={currentVal.shortDescription}
               count={currentVal.count}
-              removeFromCart={props.removeFromCart} />
+              cartItemIdArray={currentVal.cartItemIdArray}
+              cartId={currentVal.cartId}
+              removeFromCart={props.removeFromCart}
+              addToCart={props.addToCart}
+              removeItemCompletelyFromCart={props.removeItemCompletelyFromCart} />
           );
         })
       }
-      {/* <div className="totalprice">Item Total = ${(totalPrice / 100).toFixed(2)}</div>
-      <button className="btn btn-primary mx-5 my-2" onClick={() => {
-        if (props.cart.length) {
-          props.setView('checkout', {});
-        }
-      }}>checkout</button> */}
     </div>
   );
 }
