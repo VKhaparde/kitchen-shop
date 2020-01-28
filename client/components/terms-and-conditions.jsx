@@ -2,15 +2,13 @@ import React from 'react';
 
 function TermsAndConditions(props) {
   return (
-    <div>
-      <div className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="container">
+      <div className="modal fade show" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        style={{ display: 'block' }}>
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Welcome to Kitchen Shop</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <h3 className="modal-title text-center" id="exampleModalLabel">Welcome to Kitchen Shop</h3>
             </div>
             <div className="modal-body">
               <p>Kitchen Shop is a LAMP stack content management app that was created

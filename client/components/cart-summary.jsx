@@ -2,7 +2,7 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
-  // console.log('props in CartSummary',props);
+  // console.log('props in CartSummary', props);
   const uniqueItems = [...new Set(props.cart.map(x => x.productId))];
   // console.log('Unique Items',uniqueItems);
   const resultArray = [];
@@ -73,7 +73,6 @@ function CartSummary(props) {
               key={currentVal.productId}
               productId={currentVal.productId}
               name={currentVal.name}
-              // price={((currentVal.price) / 100).toFixed(2)}
               price={currentVal.price}
               image={currentVal.image}
               shortDescription={currentVal.shortDescription}

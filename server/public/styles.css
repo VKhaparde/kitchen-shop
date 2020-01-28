@@ -139,6 +139,8 @@ button{
 }
 .modal-content{
     background-color:#667db6;
+    /* background-color: cadetblue; */
+    color: white;
 }
 .modal-header{
     border-bottom: 0 none;

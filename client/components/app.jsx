@@ -5,6 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import TermsAndConditions from './terms-and-conditions';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -117,11 +118,13 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'catalog' && this.state.termsAccepted === false) {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}
-            params={this.state.view.params} />
-          <ProductList setView={this.setView} />
           <TermsAndConditions acceptTermsAndConditions={this.acceptTermsAndConditions}
-            termsAccepted={this.state.termsAccepted}/>
+            termsAccepted={this.state.termsAccepted} />
+          <div>
+            <Header cartItemCount={this.state.cart.length} setView={this.setView}
+              params={this.state.view.params} />
+            <ProductList setView={this.setView} />
+          </div>
         </div>
       );
     } else if (this.state.view.name === 'details') {
