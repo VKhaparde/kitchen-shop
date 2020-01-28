@@ -119,8 +119,6 @@ button{
   background-size: cover;
   font-family:cursive;
 }
-
-
  .carousel-inner{
   height:70%
 }
@@ -142,9 +140,9 @@ button{
 .modal-content{
     background-color:#667db6;
 }
-  .modal-header {
+.modal-header{
     border-bottom: 0 none;
 }
-.modal-footer {
-    border-top: 0 none;
+.modal-footer{
+  border-top:0 none;
 }

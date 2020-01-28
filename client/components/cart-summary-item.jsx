@@ -1,5 +1,4 @@
 import React from 'react';
-// import DeleteModal from './delete-modal';
 
 function CartSummaryItem(props) {
   // console.log('props in CartSummaryItem', props);
@@ -19,7 +18,6 @@ function CartSummaryItem(props) {
           <div className="d-flex">
             <div><i className="fas fa-plus-square p-2 mt-2" onClick={event => {
               props.addToCart(product);
-              // console.log('product added', props);
             }}></i></div>
             <div className="bg-white text-secondary item_count p-2">{props.count}</div>
             <div><i className="fas fa-minus-square p-2 mt-2" onClick={event => {

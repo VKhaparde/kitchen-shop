@@ -4,8 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
-// import DeleteModal from './delete-modal';
-
+import TermsAndConditions from './terms-and-conditions';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +13,14 @@ export default class App extends React.Component {
       view: {
         name: 'catalog',
         params: {}
-      }
+      },
+      termsAccepted: false
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.removeItemCompletelyFromCart = this.removeItemCompletelyFromCart.bind(this);
+    this.acceptTermsAndConditions = this.acceptTermsAndConditions.bind(this);
   }
 
   setView(name, params) {
@@ -100,13 +101,27 @@ export default class App extends React.Component {
       });
   }
 
+  acceptTermsAndConditions() {
+    this.setState({ termsAccepted: !this.state.termsAccepted });
+  }
+
   render() {
-    if (this.state.view.name === 'catalog') {
+    if (this.state.view.name === 'catalog' && this.state.termsAccepted) {
       return (
         <div>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}
             params={this.state.view.params} />
           <ProductList setView={this.setView} />
+        </div>
+      );
+    } else if (this.state.view.name === 'catalog' && this.state.termsAccepted === false) {
+      return (
+        <div>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView}
+            params={this.state.view.params} />
+          <ProductList setView={this.setView} />
+          <TermsAndConditions acceptTermsAndConditions={this.acceptTermsAndConditions}
+            termsAccepted={this.state.termsAccepted}/>
         </div>
       );
     } else if (this.state.view.name === 'details') {
