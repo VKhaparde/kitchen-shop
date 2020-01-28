@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+// import DeleteModal from './delete-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
+    this.removeItemCompletelyFromCart = this.removeItemCompletelyFromCart.bind(this);
   }
 
   setView(name, params) {
@@ -40,6 +42,7 @@ export default class App extends React.Component {
   }
 
   addToCart(product) {
+    // console.log('product to be added in app.jsx',product);
     const init = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -48,8 +51,9 @@ export default class App extends React.Component {
     fetch('/api/cart', init)
       .then(response => response.json())
       .then(data => {
-        const productsInCart = this.state.cart.concat(product);
-        this.setState({ cart: productsInCart });
+        // const productsInCart = this.state.cart.concat(product);
+        // this.setState({ cart: productsInCart });
+        this.getCartItems();
       });
   }
 
@@ -58,17 +62,26 @@ export default class App extends React.Component {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        productId: product.productId,
+        cartItemId: product.cartItemIdArray[product.cartItemIdArray.length - 1]
+      })
+    };
+    fetch('/api/cart', init)
+      .then(response => this.getCartItems())
+      .catch(error => console.error('There was an unexpected error:', error));
+  }
+
+  removeItemCompletelyFromCart(product) {
+    const init = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         productId: product.productId
       })
     };
     fetch('/api/cart', init)
-      .then(response => response.json())
-      .then(data => {
-        const productsInCart = this.state.cart.filter(item => {
-          return item.productId !== product.productId;
-        });
-        this.setState({ cart: productsInCart });
-      });
+      .then(response => this.getCartItems())
+      .catch(error => console.error('There was an unexpected error:', error));
   }
 
   placeOrder(orderDetails) {
@@ -111,7 +124,8 @@ export default class App extends React.Component {
           <Header cartItemCount={this.state.cart.length} setView={this.setView}
             params={this.state.view.params} />
           <CartSummary cart={this.state.cart} setView={this.setView}
-            removeFromCart={this.removeFromCart}/>
+            removeFromCart={this.removeFromCart} addToCart={this.addToCart}
+            removeItemCompletelyFromCart={this.removeItemCompletelyFromCart}/>
         </div>
       );
     } else if (this.state.view.name === 'checkout') {

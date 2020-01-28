@@ -44,15 +44,26 @@ else if ($request['method'] === "DELETE") {
   }
   $link = get_db_link();
   $productId = $request['body']['productId'];
-  $message = remove_product_fromCart($link, $productId);
-  $response['body'] = $message['cart_items'];
-  send($response);
+  $cartItemId = $request['body']['cartItemId'];
+  if ($cartItemId) {
+    $message = remove_product_fromCart($link, $productId, $cartItemId);
+    $response['body'] = $message['cart_items'];
+    send($response);
+  } else {
+    $message = remove_product_completely_fromCart($link, $productId);
+    $response['body'] = $message['cart_items'];
+    send($response);
+  }
 }
 
-function remove_product_fromcart($link,$productId){
-  $deleteItemQuery = "DELETE from cartItems WHERE productId = $productId";
+function remove_product_fromcart($link,$productId,$cartItemId){
+  $deleteItemQuery = "DELETE from cartItems WHERE
+  productId = $productId
+  AND
+  cartItemId = $cartItemId ";
+  // var_dump($deleteItemQuery);
   $deleteFromCartResult = mysqli_query($link, $deleteItemQuery);
-  $delete_id_cartItems = $link->$_SESSION['cart_id'];
+  $delete_id_cartItems = $_SESSION['cart_id'];
   $cart_items_query = "SELECT ci.cartItemId, p.productId, p.name, p.price, p.image, p.shortDescription
                         FROM products AS p
                         JOIN cartItems AS ci
@@ -61,6 +72,26 @@ function remove_product_fromcart($link,$productId){
 
   $cart_items_result = mysqli_query($link, $cart_items_query);
   // return  mysqli_fetch_assoc($cart_items_result);
+  return [
+    "cart_items" => mysqli_fetch_assoc($cart_items_result)
+  ];
+}
+
+function remove_product_completely_fromCart($link, $productId){
+$deleteItemQuery = "DELETE from cartItems WHERE
+  productId = $productId ";
+  // var_dump($deleteItemQuery);
+  $deleteFromCartResult = mysqli_query($link, $deleteItemQuery);
+  $delete_id_cartItems = $_SESSION['cart_id'];
+  $cart_items_query = "SELECT ci.cartItemId, p.productId, p.name, p.price, p.image, p.shortDescription
+                        FROM products AS p
+                        JOIN cartItems AS ci
+                         ON p.productId = ci.productId
+                        WHERE ci.cartItemId = $delete_id_cartItems";
+
+  $cart_items_result = mysqli_query($link, $cart_items_query);
+  // return  mysqli_fetch_assoc($cart_items_result);
+  var_dump($cart_items_result);
   return [
     "cart_items" => mysqli_fetch_assoc($cart_items_result)
   ];

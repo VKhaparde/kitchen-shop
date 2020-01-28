@@ -46,7 +46,7 @@ class CheckoutForm extends React.Component {
               onChange={this.updateField} required autoComplete="off"/>
           </div>
 
-          <button className="btn btn-primary m-2" onClick={() => {
+          <button className="btn btn-secondary m-2" onClick={() => {
             this.props.setView('catalog', {});
           }}>Continue Shopping</button>
 
