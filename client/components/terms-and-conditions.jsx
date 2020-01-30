@@ -5,7 +5,7 @@ function TermsAndConditions(props) {
     <div className="container">
       <div className="modal fade show" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
         style={{ display: 'block' }}>
-        <div className="modal-dialog" role="document">
+        <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h3 className="modal-title text-center" id="exampleModalLabel">Welcome to Kitchen Shop</h3>
