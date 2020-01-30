@@ -2,6 +2,7 @@ import React from 'react';
 
 function TermsAndConditions(props) {
   return (
+
     <div className="container">
       <div className="modal fade show" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
         style={{ display: 'block' }}>
@@ -9,6 +10,7 @@ function TermsAndConditions(props) {
           <div className="modal-content">
             <div className="modal-header">
               <h3 className="modal-title text-center" id="exampleModalLabel">Welcome to Kitchen Shop</h3>
+
             </div>
             <div className="modal-body">
               <p>Kitchen Shop is a LAMP stack content management app that was created

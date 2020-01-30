@@ -58,6 +58,7 @@ class CartSummaryItem extends React.Component {
                   this.showDeleteModal();
                 }}>Remove</button>
             </div>
+
           </div>
         </div>
       </div>
