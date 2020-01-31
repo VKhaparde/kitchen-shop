@@ -17,7 +17,7 @@ function DeleteModal(props) {
               </button>
             </div>
             <div className="modal-body">
-              <h5>Are you sure you want to delete this item?</h5>
+              <p>Are you sure you want to delete {props.product.name} from your cart?</p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary"
