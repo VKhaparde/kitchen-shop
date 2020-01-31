@@ -1,4 +1,5 @@
 import React from 'react';
+import OrderConfirmation from './order-confirmation';
 
 class CheckoutForm extends React.Component {
   constructor(props) {
@@ -6,9 +7,12 @@ class CheckoutForm extends React.Component {
     this.state = {
       name: '',
       creditCard: '',
-      shippingAddress: ''
+      shippingAddress: '',
+      orderPlaced: false
     };
     this.updateField = this.updateField.bind(this);
+    this.updateOrderPlacedValue = this.updateOrderPlacedValue.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   updateField(event) {
@@ -17,42 +21,108 @@ class CheckoutForm extends React.Component {
     this.setState(state);
   }
 
+  updateOrderPlacedValue() {
+    this.setState({
+      orderPlaced: true
+    });
+  }
+
+  hideModal() {
+    this.setState({
+      orderPlaced: false,
+      name: '',
+      creditCard: '',
+      shippingAddress: ''
+    });
+  }
+
   render() {
+    // console.log('props in checkout form', this.props);
     const totalPrice = this.props.cart.reduce((accumulator, currentVal) => {
       return (accumulator + currentVal.price);
     }, 0);
+
     return (
-      <div className="mx-2 p-4 checkoutForm">
-        <h3 className="text-center">My Cart</h3>
-        <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
-        <form action="" onSubmit={() =>
-          this.props.placeOrder(this.state)}>
+      <div>
+        {
+          this.state.orderPlaced && <OrderConfirmation cart={this.props.cart}
+            placeOrder={this.props.placeOrder} setView={this.props.setView}
+            hideModal={this.hideModal} orderDetails={this.state} />
+        }
+        <div className="mx-2 p-4 checkoutForm">
+          <h3 className="text-center">My Cart</h3>
+          <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
+          <form action=""
+            onSubmit={event => {
+              event.preventDefault();
+              this.updateOrderPlacedValue();
+              // this.props.placeOrder(this.state);
+            }}>
+            <div className="form-group">
+              <label>Name:</label>
+              <input type="text" name="name" className="form-control" value={this.state.name}
+                onChange={this.updateField} required autoComplete="off" minLength="5"/>
+            </div>
 
-          <div className="form-group">
-            <label>Name:</label>
-            <input type="text" name="name" className="form-control" value={this.state.name}
-              onChange={this.updateField} required autoComplete="off" />
-          </div>
+            <div className="form-group">
+              <label>Credit Card number:</label>
+              <input type="number" name="creditCard" className="form-control" value={this.state.creditCard}
+                minLength="16" onChange={this.updateField} required autoComplete="off" />
+            </div>
 
-          <div className="form-group">
-            <label>Credit Card number:</label>
-            <input type="text" name="creditCard" className="form-control" value={this.state.creditCard}
-              onChange={this.updateField} required autoComplete="off"/>
-          </div>
+            <div className="form-group">
+              <label>Shipping Address:</label>
+              <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
+                onChange={this.updateField} required autoComplete="off" minLength="10" />
+            </div>
+            {/* <div className="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+            </div>
+              <div className="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+            </div>
+                <div className="form-row">
+                  <div className="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" className="form-control" id="inputCity"/>
+                  </div>
+                    <div className="form-group col-md-4">
+                      <label for="inputState">State</label>
+                      <select id="inputState" className="form-control">
+                        <option selected>Choose...</option>
+                        <option value="CA">California</option>
+                        <option value="TX">Texas</option>
+                        <option value="GA">Georgia</option>
+                        <option value="CO">Colorado</option>
+                        <option value="OH">Ohio</option>
+                      </select>
+                    </div>
+                    <div className="form-group col-md-2">
+                      <label for="inputZip">Zip</label>
+                      <input type="number" className="form-control" id="inputZip" />
+                    </div>
+                    </div>
+                    <div className="form-group">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" id="gridCheck" required/>
+                          <label className="form-check-label" for="gridCheck">
+                            This app is just for demonstration purposes only.Information provided in the checkout will not be used.
+                          </label>
+                      </div>
+                      </div> */}
 
-          <div className="form-group">
-            <label>Shipping Address:</label>
-            <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-              onChange={this.updateField} required autoComplete="off"/>
-          </div>
+            <button className="btn btn-secondary m-2" onClick={() => {
+              this.props.setView('catalog', {});
+            }}>Continue Shopping</button>
 
-          <button className="btn btn-secondary m-2" onClick={() => {
-            this.props.setView('catalog', {});
-          }}>Continue Shopping</button>
+            <button className="btn btn-primary m-2" onClick={() => {
+              // this.updateOrderPlacedValue();
+            }}>Place Order</button>
 
-          <button className="btn btn-primary m-2">Place Order</button>
-
-        </form >
+          </form >
+        </div>
       </div>
     );
   }

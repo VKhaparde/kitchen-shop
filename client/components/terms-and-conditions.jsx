@@ -20,7 +20,7 @@ function TermsAndConditions(props) {
                  real names, addresses, or credit card numbers.</p>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-dismiss="modal"
+              <button type="button" className="btn btn-danger btn-block" data-dismiss="modal"
                 onClick={() => {
                   props.acceptTermsAndConditions();
                 }}>Accept</button>

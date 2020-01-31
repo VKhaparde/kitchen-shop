@@ -15,10 +15,12 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      termsAccepted: false
+      termsAccepted: false,
+      orderPlaced: false
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.removeItemCompletelyFromCart = this.removeItemCompletelyFromCart.bind(this);
     this.acceptTermsAndConditions = this.acceptTermsAndConditions.bind(this);
@@ -44,7 +46,6 @@ export default class App extends React.Component {
   }
 
   addToCart(product) {
-    // console.log('product to be added in app.jsx',product);
     const init = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -146,7 +147,7 @@ export default class App extends React.Component {
             removeItemCompletelyFromCart={this.removeItemCompletelyFromCart}/>
         </div>
       );
-    } else if (this.state.view.name === 'checkout') {
+    } else if (this.state.view.name === 'checkout' && this.state.orderPlaced === false) {
       return (
         <div>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}
@@ -156,5 +157,18 @@ export default class App extends React.Component {
         </div>
       );
     }
+    // else if (this.state.view.name === 'checkout' && this.state.orderPlaced === true){
+    //   return (
+    //     <div>
+    //       <OrderConfirmation />
+    //       <div>
+    //         <Header cartItemCount={this.state.cart.length} setView={this.setView}
+    //           params={this.state.view.params} />
+    //         <CheckoutForm setView={this.setView} placeOrder={this.placeOrder}
+    //           cart={this.state.cart} />
+    //       </div>
+    //     </div>
+    //   );
+    // }
   }
 }
