@@ -67,13 +67,13 @@ class CheckoutForm extends React.Component {
             <div className="form-group">
               <label>Credit Card number:</label>
               <input type="number" name="creditCard" className="form-control" value={this.state.creditCard}
-                maxLength="16" onChange={this.updateField} required autoComplete="off" />
+                max="16" onChange={this.updateField} required autoComplete="off" />
             </div>
 
             <div className="form-group">
               <label>Shipping Address:</label>
               <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-                onChange={this.updateField} required autoComplete="off" minLength="10" />
+                onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="20" />
             </div>
             {/* <div className="form-group">
               <label for="inputAddress">Address</label>
