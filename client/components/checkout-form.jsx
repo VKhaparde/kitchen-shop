@@ -50,7 +50,7 @@ class CheckoutForm extends React.Component {
             hideModal={this.hideModal} orderDetails={this.state} />
         }
         <div className="mx-2 p-4 checkoutForm">
-          <h3 className="text-center">My Cart</h3>
+          <h3 className="text-center">Check Out</h3>
           <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
           <form action=""
             onSubmit={event => {
@@ -67,7 +67,7 @@ class CheckoutForm extends React.Component {
             <div className="form-group">
               <label>Credit Card number:</label>
               <input type="number" name="creditCard" className="form-control" value={this.state.creditCard}
-                minLength="16" onChange={this.updateField} required autoComplete="off" />
+                maxLength="16" onChange={this.updateField} required autoComplete="off" />
             </div>
 
             <div className="form-group">
