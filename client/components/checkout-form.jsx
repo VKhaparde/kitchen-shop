@@ -49,8 +49,9 @@ class CheckoutForm extends React.Component {
             placeOrder={this.props.placeOrder} setView={this.props.setView}
             hideModal={this.hideModal} orderDetails={this.state} />
         }
-        <div className="mx-2 p-4 checkoutForm">
+        <div className="mx-2 p-2 checkoutForm">
           <h3 className="text-center">Check Out</h3>
+          <h6 className="text-center text-primary">This checkout form is only for demo purposes only. No real transaction will be made.</h6>
           <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
           <form action=""
             onSubmit={event => {
