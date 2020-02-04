@@ -68,7 +68,7 @@ class CheckoutForm extends React.Component {
             <div className="form-group">
               <label>Credit Card number:</label>
               <input type="number" name="creditCard" className="form-control" value={this.state.creditCard}
-                max="16" onChange={this.updateField} required autoComplete="off" />
+                min="16" max="16" onChange={this.updateField} required autoComplete="off" />
             </div>
 
             <div className="form-group">
