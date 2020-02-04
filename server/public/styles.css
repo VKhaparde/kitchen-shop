@@ -149,3 +149,11 @@ button{
 .modal-footer{
   border-top:0 none;
 }
+
+textarea:invalid ,input:invalid{
+  border: 2px solid crimson;
+}
+
+textarea:valid , input:valid{
+   border: 2px solid darkgreen;
+}

@@ -53,28 +53,30 @@ class CheckoutForm extends React.Component {
           <h3 className="text-center">Check Out</h3>
           <h6 className="text-center text-primary">This checkout form is only for demo purposes only. No real transaction will be made.</h6>
           <div className="totalprice">Order Total: ${(totalPrice / 100).toFixed(2)}</div>
-          <form action=""
+          <form
             onSubmit={event => {
               event.preventDefault();
               this.updateOrderPlacedValue();
               // this.props.placeOrder(this.state);
             }}>
-            <div className="form-group">
-              <label>Name:</label>
+            <div>
+              <label htmlFor="nameValidation">Name:</label>
               <input type="text" name="name" className="form-control" value={this.state.name}
-                onChange={this.updateField} required autoComplete="off" minLength="5"/>
+                onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="20"
+                pattern="[a-zA-Z ]*$" title="Please enter a valid name"/>
             </div>
 
             <div className="form-group">
               <label>Credit Card number:</label>
-              <input type="number" name="creditCard" className="form-control" value={this.state.creditCard}
-                min="16" max="16" onChange={this.updateField} required autoComplete="off" />
+              <input type="text" name="creditCard" className="form-control" value={this.state.creditCard}
+                onChange={this.updateField} required autoComplete="off" maxLength="16"
+                pattern= "[0-9]{16}" placeholder="0000000000000000" title="Provide only numbers"/>
             </div>
 
             <div className="form-group">
               <label>Shipping Address:</label>
               <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-                onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="20" />
+                onChange={this.updateField} required autoComplete="off" maxLength="50" />
             </div>
             {/* <div className="form-group">
               <label for="inputAddress">Address</label>
