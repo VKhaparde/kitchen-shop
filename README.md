@@ -18,7 +18,7 @@ A full stack LAMP & React shopping cart application where a user can shop for sm
 * User can view the cart summary
 * User can place an order
 ## Preview
-![kitchen-shop](https://user-images.githubusercontent.com/54192822/71130824-de11e500-21ea-11ea-8697-13bb151c0247.png)
+![kitchenShop](https://user-images.githubusercontent.com/54192822/73874784-0b265f80-484c-11ea-9aaf-c1d52bda4c93.gif)
 ## Development
 ### System Requirements
 * Node.js 10 or higher
