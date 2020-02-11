@@ -62,21 +62,25 @@ class CheckoutForm extends React.Component {
             <div>
               <label htmlFor="nameValidation">Name:</label>
               <input type="text" name="name" className="form-control" value={this.state.name}
-                onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="20"
-                pattern="[a-zA-Z ]*$" title="Please enter a valid name"/>
+                onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="40"
+                pattern= "^(?!\s*$)[-a-zA-Z_:,\s]{1,100}$" title="Please enter a valid name" />
+              {/* pattern="[a-zA-Z ]*$" */}
             </div>
 
             <div className="form-group">
               <label>Credit Card number:</label>
               <input type="text" name="creditCard" className="form-control" value={this.state.creditCard}
                 onChange={this.updateField} required autoComplete="off" maxLength="16"
-                pattern= "[0-9]{16}" placeholder="0000000000000000" title="Provide only numbers"/>
+                pattern= "[0-9]{16}" placeholder="0000000000000000" title="Provide only numbers upto 16 digits"/>
             </div>
 
             <div className="form-group">
               <label>Shipping Address:</label>
-              <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-                onChange={this.updateField} required autoComplete="off" maxLength="50" />
+              <input name="shippingAddress" type ="text" className="form-control" value={this.state.shippingAddress}
+                onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="100"
+                pattern="^(?!\s*$)^[ A-Za-z0-9_@./#&+-]*$" title="Please enter valid address of atleast 10 characters"/>
+              {/* <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
+                onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="100" /> */}
             </div>
             {/* <div className="form-group">
               <label for="inputAddress">Address</label>
