@@ -29,7 +29,7 @@ class ProductList extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="cooking"><h1 className="text-white text-right p-2">&quot;Build your Kitchen&quot;</h1></div>
+        <div className="cooking"><h1 className="text-secondary text-right p-2">&quot;Build your Kitchen&quot;</h1></div>
         {/* <div id="carouselPortfolio" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
             <li data-target="#carouselPortfolio" data-slide-to="0" className="active" ></li>
