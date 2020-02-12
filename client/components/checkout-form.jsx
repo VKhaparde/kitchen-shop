@@ -63,8 +63,8 @@ class CheckoutForm extends React.Component {
               <label htmlFor="nameValidation">Name:</label>
               <input type="text" name="name" className="form-control" value={this.state.name}
                 onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="40"
-                pattern= "^(?!\s*$)[-a-zA-Z_:,\s]{1,100}$" title="Please enter a valid name" />
-              {/* pattern="[a-zA-Z ]*$" */}
+                pattern= "\s*([A-Za-z]\s*){5,}" title="Please enter a valid name of atleast 5 characters" />
+              {/* pattern="[a-zA-Z ]*$"  pattern= "^(?!\s*$)[-a-zA-Z_:,\s]{1,100}$" */}
             </div>
 
             <div className="form-group">
@@ -77,8 +77,9 @@ class CheckoutForm extends React.Component {
             <div className="form-group">
               <label>Shipping Address:</label>
               <input name="shippingAddress" type ="text" className="form-control" value={this.state.shippingAddress}
-                onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="100"
-                pattern="^(?!\s*$)^[ A-Za-z0-9_@./#&+-]*$" title="Please enter valid address of atleast 10 characters"/>
+                onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="100"
+                pattern="\s*([A-Za-z0-9_@./#-,]\s*){10,}" title="Please enter valid address of atleast 10 characters"/>
+              {/* pattern="^(?!\s*$)^[ A-Za-z0-9_@./#&+-]*$" */}
               {/* <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
                 onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="100" /> */}
             </div>
