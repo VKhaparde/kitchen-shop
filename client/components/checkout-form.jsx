@@ -37,7 +37,6 @@ class CheckoutForm extends React.Component {
   }
 
   render() {
-    // console.log('props in checkout form', this.props);
     const totalPrice = this.props.cart.reduce((accumulator, currentVal) => {
       return (accumulator + currentVal.price);
     }, 0);
@@ -57,14 +56,12 @@ class CheckoutForm extends React.Component {
             onSubmit={event => {
               event.preventDefault();
               this.updateOrderPlacedValue();
-              // this.props.placeOrder(this.state);
             }}>
             <div>
               <label htmlFor="nameValidation">Name:</label>
               <input type="text" name="name" className="form-control" value={this.state.name}
                 onChange={this.updateField} required autoComplete="off" minLength="5" maxLength="40"
                 pattern= "\s*([A-Za-z]\s*){5,}" title="Please enter a valid name of atleast 5 characters" />
-              {/* pattern="[a-zA-Z ]*$"  pattern= "^(?!\s*$)[-a-zA-Z_:,\s]{1,100}$" */}
             </div>
 
             <div className="form-group">
@@ -79,54 +76,12 @@ class CheckoutForm extends React.Component {
               <input name="shippingAddress" type ="text" className="form-control" value={this.state.shippingAddress}
                 onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="100"
                 pattern="\s*([A-Za-z0-9_@./#-,]\s*){10,}" title="Please enter valid address of atleast 10 characters"/>
-              {/* pattern="^(?!\s*$)^[ A-Za-z0-9_@./#&+-]*$" */}
-              {/* <textarea name="shippingAddress" className="form-control" value={this.state.shippingAddress}
-                onChange={this.updateField} required autoComplete="off" minLength="10" maxLength="100" /> */}
             </div>
-            {/* <div className="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
-            </div>
-              <div className="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
-            </div>
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" className="form-control" id="inputCity"/>
-                  </div>
-                    <div className="form-group col-md-4">
-                      <label for="inputState">State</label>
-                      <select id="inputState" className="form-control">
-                        <option selected>Choose...</option>
-                        <option value="CA">California</option>
-                        <option value="TX">Texas</option>
-                        <option value="GA">Georgia</option>
-                        <option value="CO">Colorado</option>
-                        <option value="OH">Ohio</option>
-                      </select>
-                    </div>
-                    <div className="form-group col-md-2">
-                      <label for="inputZip">Zip</label>
-                      <input type="number" className="form-control" id="inputZip" />
-                    </div>
-                    </div>
-                    <div className="form-group">
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" id="gridCheck" required/>
-                          <label className="form-check-label" for="gridCheck">
-                            This app is just for demonstration purposes only.Information provided in the checkout will not be used.
-                          </label>
-                      </div>
-                      </div> */}
-
             <button className="btn btn-secondary m-2" onClick={() => {
               this.props.setView('catalog', {});
             }}>Continue Shopping</button>
 
             <button className="btn btn-primary m-2" onClick={() => {
-              // this.updateOrderPlacedValue();
             }}>Place Order</button>
 
           </form >

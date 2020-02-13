@@ -28,7 +28,6 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    // console.log('props in product details', this.props);
     const product = this.state.product;
     if (product === null) {
       return null;

@@ -2,9 +2,7 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 function CartSummary(props) {
-  // console.log('props in CartSummary', props);
   const uniqueItems = [...new Set(props.cart.map(x => x.productId))];
-  // console.log('Unique Items',uniqueItems);
   const resultArray = [];
   var duplicateItem = { count: 0, cartItemIdArray: [] };
   for (let uniqueIndex = 0; uniqueIndex < uniqueItems.length; uniqueIndex++) {
@@ -16,7 +14,6 @@ function CartSummary(props) {
         duplicateItem.name = props.cart[i].name;
         duplicateItem.shortDescription = props.cart[i].shortDescription;
         duplicateItem.count = duplicateItem.count + 1;
-        // console.log("props.cart[i].cartItemId", props.cart[i].cartItemId);
         duplicateItem.cartItemIdArray.push(props.cart[i].cartItemId);
       }
     }
@@ -26,7 +23,6 @@ function CartSummary(props) {
   const totalPrice = props.cart.reduce((accumulator, currentVal) => {
     return (accumulator + currentVal.price);
   }, 0);
-  // console.log('Result Array', resultArray);
   if (resultArray.length === 0) {
     return (
       <div className="outerDiv">

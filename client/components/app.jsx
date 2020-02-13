@@ -54,8 +54,6 @@ export default class App extends React.Component {
     fetch('/api/cart', init)
       .then(response => response.json())
       .then(data => {
-        // const productsInCart = this.state.cart.concat(product);
-        // this.setState({ cart: productsInCart });
         this.getCartItems();
       });
   }
@@ -157,18 +155,5 @@ export default class App extends React.Component {
         </div>
       );
     }
-    // else if (this.state.view.name === 'checkout' && this.state.orderPlaced === true){
-    //   return (
-    //     <div>
-    //       <OrderConfirmation />
-    //       <div>
-    //         <Header cartItemCount={this.state.cart.length} setView={this.setView}
-    //           params={this.state.view.params} />
-    //         <CheckoutForm setView={this.setView} placeOrder={this.placeOrder}
-    //           cart={this.state.cart} />
-    //       </div>
-    //     </div>
-    //   );
-    // }
   }
 }

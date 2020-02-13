@@ -1,11 +1,5 @@
-// Define a stateful`ProductList` component in `client/components/product-list.jsx`
-//  that will render a grid of`ProductListItems`.
-// Give it an initial state of`products` set to an empty`Array`.
-// Define a method in `ProductList` named`getProducts`
-//  that retrieves all products by sending a`GET` request to`/api/products`.
 import React from 'react';
 import ProductListItem from './product-list-item';
-// import ProductDetails from './product-details';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -30,32 +24,6 @@ class ProductList extends React.Component {
     return (
       <div className="container-fluid">
         <div className="cooking"><h1 className="text-secondary text-right p-2">&quot;Build your Kitchen&quot;</h1></div>
-        {/* <div id="carouselPortfolio" className="carousel slide" data-ride="carousel">
-          <ol className="carousel-indicators">
-            <li data-target="#carouselPortfolio" data-slide-to="0" className="active" ></li>
-            <li data-target="#carouselPortfolio" data-slide-to="1"></li>
-            <li data-target="#carouselPortfolio" data-slide-to="2"></li>
-          </ol>
-          <div className="carousel-inner">
-            <div className="carousel-item" data-interval="5000">
-              <img className="carouselImg d-block w-100" src="images/cooking.jpg" alt="First slide" />
-            </div>
-            <div className="carousel-item" data-interval="5000">
-              <img className="carouselImg d-block w-100" src="images/chili.jpg" alt="Second slide" />
-            </div>
-            <div className="carousel-item active" data-interval="5000">
-              <img className="carouselImg d-block w-100" src="images/appliances.jpg" alt="Third slide" />
-            </div>
-          </div>
-          <a className="carousel-control-prev" href="#carouselPortfolio" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a className="carousel-control-next" href="#carouselPortfolio" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-          </a>
-        </div> */}
         <div className="row">
           {
             this.state.products.map(currentVal => {
